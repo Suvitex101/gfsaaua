@@ -1,29 +1,3 @@
-const slider = document.getElementById("slider");
-const sliderValue = document.getElementById("slider-value");
-
-function updateSliderValue() {
-  const value = slider.value;
-  sliderValue.textContent = `${value}%`;
-
-  const newPosition = (slider.clientWidth * value) / 100 - sliderValue.clientWidth / 2;
-  sliderValue.style.left = `${newPosition}px`;
-}
-
-updateSliderValue();
-
-
-slider.addEventListener("input", updateSliderValue);
-
-
-const slider_two = document.getElementById("slider");
-
-slider_two.addEventListener("input", function () {
-  const value = this.value;
-  const redPart = `${value}%`;
-  const transparentPart = `${100 - value}%`;
-  this.style.backgroundSize = `${redPart}, ${transparentPart}`;
-});
-
 
 var menuItems = document.querySelectorAll('.menu .menu-click');
 
@@ -67,18 +41,6 @@ menuIcon.addEventListener('click', () => {
 })
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    const typed = new Typed('#coming-soon', {
-        strings: ['Coming Soon...', 'We Will Be Back Soon...'],
-        typeSpeed: 100,
-        backSpeed: 100,
-        backDelay: 1000,
-        loop: true
-    });
-});
-
-
-
 function FullView(ImgLink) {
     document.querySelector("#FullImage").src = ImgLink;
     document.querySelector(".full-screen").style.display = "block";
@@ -97,3 +59,29 @@ function toggleFaq(element) {
         faqContent.style.display = 'block';
     }
 }
+
+const slider = document.getElementById("slider");
+const sliderValue = document.getElementById("slider-value");
+
+function updateSliderValue() {
+  const value = slider.value;
+  sliderValue.textContent = `${value}%`;
+
+  const newPosition = (slider.clientWidth * value) / 100 - sliderValue.clientWidth / 2;
+  sliderValue.style.left = `${newPosition}px`;
+}
+
+updateSliderValue();
+
+
+slider.addEventListener("input", updateSliderValue);
+
+
+const slider_two = document.getElementById("slider");
+
+slider_two.addEventListener("input", function () {
+  const value = this.value;
+  const redPart = `${value}%`;
+  const transparentPart = `${100 - value}%`;
+  this.style.backgroundSize = `${redPart}, ${transparentPart}`;
+});
