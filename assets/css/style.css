@@ -273,20 +273,31 @@ li {
 	display: flex;
 	align-items: center;
 	position: relative;
-	padding-bottom: 0;
 	gap: 50px;
-	justify-content: flex-end;
+	justify-content: space-between;
 }
+
+.hero-image {
+	flex: 1;
+	position: relative;
+	align-self: flex-end;
+}
+
 .section-one img {
-	max-width: 100%;
+	width: 100%;
 	height: auto;
 	object-fit: cover;
 }
 
 .hero-content {
+	flex: 1;
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
+	/* padding: 0 30px; */
+	background: rgba(47, 35, 55, 0.8);
+	border-radius: 0 15px 15px 0;
+	justify-content: center;
 }
 
 .hero-content h1 {
@@ -306,11 +317,17 @@ li {
 	background-color: var(--color-danger);
 	color: white;
 	border: 1px solid var(--color-danger);
-	border-radius: 4px 4px;
+	border-radius: 4px;
 	padding: 10px 20px;
 	cursor: pointer;
 	font-size: 16px;
 	width: fit-content;
+	transition: 0.3s;
+}
+
+.hero-btn:hover {
+	background-color: white;
+	color: var(--color-danger);
 }
 
 .upcoming-event {
@@ -561,26 +578,30 @@ li {
 
 /* Section two */
 .section-two {
-	padding: 100px;
+	padding: 20px 50px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
+	min-height: 80vh;
 }
 
 .about-church img {
-	height: 400px;
 	width: auto;
 }
 
 .about-church {
 	display: flex;
 	gap: 80px;
-	padding: 20px 100px;
+	padding: 20px 50px;
+	align-items: center;
 }
+
 .about-inner {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
+	gap: 30px;
 }
 
 .about-inner p {
@@ -592,9 +613,11 @@ li {
 .section-two h1 {
 	font-size: 30px;
 }
+
 .about-p {
 	margin-bottom: 10px;
 }
+
 .about_btn {
 	width: 250px;
 	border-radius: 20px;
@@ -610,23 +633,30 @@ li {
 	margin-top: 30px;
 }
 
+
 /* Section 3 */
 .section-three {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	background-color: var(--bg-color-two);
 	padding: 50px;
 }
 
 .section-three h1 {
 	font-size: 26px;
+	padding: 20px 0;
+}
+
+.section-three p{
+	padding-bottom: 30px;
 }
 
 .sermon-today {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 20px;
+	gap: 40px;
 }
 
 .sermon-card {
@@ -639,8 +669,8 @@ li {
 }
 
 .sermon-card img {
-	height: 255px;
-	width: auto;
+	height: 349px;
+	width: 349;
 }
 
 .sermon-card h3 {
@@ -691,8 +721,12 @@ li {
 	opacity: 100%;
 }
 
-.section-three .btn {
-	margin-top: 20px;
+.link-btn{
+	padding: 12px 32px;
+	background-color: var(--color-danger);
+	color: white;
+	margin-top: 40px;
+	border-radius: 5px;
 }
 
 .mission {
@@ -781,6 +815,7 @@ li {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	background-color: var(--color-white);
 	padding: 30px;
 }
@@ -979,6 +1014,7 @@ input[type='range']::-webkit-slider-runnable-track {
 .sect_five_h1 {
 	margin-bottom: 20px;
 }
+
 
 /* Section 6 */
 
@@ -1701,11 +1737,210 @@ input[type='range']::-webkit-slider-runnable-track {
 	display: flex;
 }
 
+/* TAB */
 @media screen and (min-width: 768px) and (max-width: 1023px) {
+	section {
+		min-height: auto;
+	}
+	.header {
+		width: 100%;
+		position: relative;
+		padding-left: 20px;
+	}
+
+	.nav {
+		position: absolute;
+		width: 100%;
+		height: auto;
+		margin-left: -20px;
+		top: 100px;
+	}
+
 	.menu {
+		flex-direction: row;
+		position: relative;
+		gap: 30px;
+		background-color: var(--color-white);
+		width: 100%;
+		padding-bottom: 30px;
+		padding-top: 30px;
+		align-items: flex-start;
+		justify-content: center;
+		height: auto;
+		padding-left: 50px;
+		display: none;
+	}
+
+	.menu.active {
+		display: flex;
+	}
+
+	.menu-click {
+		position: relative;
+		height: auto;
 		gap: 10px;
 	}
+
+	.sub-menu {
+		/* position: relative; */
+		margin-top: 0;
+		display: flex;
+		flex-direction: row;
+		display: none;
+		/* top: 0; */
+		margin-left: 0;
+		opacity: 100%;
+		transform: translateY(0);
+		padding-top: 25px;
+		padding-bottom: 20px;
+		padding-left: 0;
+		gap: 5px;
+	}
+
+	.menu-click:hover .sub-menu {
+		opacity: 1;
+		transform: translateY(0);
+		pointer-events: auto;
+	}
+
+	.menu li:hover .sub-menu {
+		display: none;
+	}
+	.menu li.active .sub-menu {
+		display: flex;
+	}
+
+	.display-down {
+		flex-direction: column;
+	}
+
+	.display-down p {
+		display: block;
+	}
+
+	.display-down {
+		gap: 0;
+	}
+
+	.display-down li {
+		padding: 5px 0 5px 20px;
+	}
+	.menu-icon {
+		position: absolute;
+		display: block;
+		right: 0;
+		cursor: pointer;
+		margin-right: 25px;
+		font-size: 35px;
+	}
+	.search-container {
+		max-width: auto;
+		margin-right: 40px;
+	}
+
+	.section-one {
+		padding: 0 20px;
+	}
+
+	.hero-content {
+		margin-top: 100px;
+	}
+
+	.hero-content h1 {
+		font-size: 23px;
+	}
+	.upcoming-event {
+		padding: 50px;
+	}
+
+	.main-upcoming {
+		width: auto;
+	}
+	.event-details {
+		width: auto;
+	}
+	.event-details img {
+		height: relative;
+	}
+	.event-dot {
+		left: 75px;
+	}
+	.about-church {
+		flex-direction: column;
+		gap: 20px;
+	}
+	.about-church img {
+		align-self: flex-start;
+	}
+	.sermon-today {
+		grid-template-columns: 1fr;
+		margin-bottom: 20px;
+	}
+	.givin-card {
+		flex-direction: column;
+	}
+	.donation-detials {
+		margin-bottom: -220px;
+	}
+	.section-six {
+		margin-top: 220px;
+	}
+	.latest {
+		grid-template-columns: 1fr;
+	}
+	.section_eleven {
+		padding: 30px;
+	}
+
+	.faqs {
+		width: 100%;
+	}
+
+	.faqs_content {
+		width: auto;
+	}
+	.footer {
+		padding-left: 20px;
+	}
+	.section-two-about {
+		padding-top: 50px;
+	}
+	.section-three_exec {
+		padding-top: 50px;
+	}
+	.upcoming-main {
+		padding: 50px 10px;
+	}
+	.main-upcoming .upcoming {
+		margin-bottom: 100px;
+	}
+	.event-card {
+		gap: 0;
+		margin-bottom: 150px;
+	}
+
+	.event-card-inner {
+		flex-direction: column;
+		margin-top: 0;
+	}
+	.online-giving-main {
+		padding-top: 50px;
+		padding-bottom: 250px;
+	}
+	.gallary {
+		grid-template-columns: 1fr 1fr;
+	}
+	.section-two-about {
+		margin-top: 0;
+	}
+	.contact-us {
+		flex-direction: column;
+	}
 }
+
+
+
+/* MOBIILE */
 
 @media screen and (max-width: 768px) {
 	.container {
@@ -1838,6 +2073,11 @@ input[type='range']::-webkit-slider-runnable-track {
 		flex-direction: column;
 		gap: 5px;
 		justify-content: center;
+	}
+
+	.section-one {
+		flex-flow: column-reverse;
+		padding-bottom: 0;
 	}
 
 	.hero-content h1 {
